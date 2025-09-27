@@ -1,0 +1,37 @@
+<odoo>
+    <template id="quick_buy_form_on_product" inherit_id="website_sale.product" name="Quick Buy Form on Product Page">
+        <xpath expr="//div[@id='o_wsale_product_details_content']" position="after">
+            <div style="max-width: 520px;">
+                <form id="quick_buy_form" action="/shop/quick_buy" method="post">
+                    <!-- ✅ CSRF token to pass Odoo validation -->
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                    <div class="form-group">
+                        <label for="name">Fullname</label>
+                        <input type="text" name="name" id="name" class="form-control" required="1" placeholder="First Name Last Name"/>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="address">Full Address</label>
+                        <input type="text" name="address" id="address" class="form-control" required="1" placeholder="City, State"/>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="phone">Phone</label>
+                        <input type="tel" name="phone" id="phone" class="form-control" required="1" placeholder="0555555555"/>
+                    </div>
+
+                    <input type="hidden" name="product_id" t-att-value="product.id"/>
+                    <input type="hidden" id="product_name" t-att-value="product.name"/>
+                    <input type="hidden" id="product_price" t-att-value="product.product_variant_id.lst_price"/>
+                    <input type="hidden" name="add_qty" id="quick_qty" value="1"/>
+                    <input type="hidden" id="product_image" t-att-value="website.image_url(product, 'image_512')"/>
+
+                    <div class="d-flex justify-content-center mt-4">
+                        <button type="button" id="quick_buy_button" class="btn btn-primary">Buy Now</button>
+                    </div>
+                </form>
+            </div>
+        </xpath>
+    </template>
+</odoo>
