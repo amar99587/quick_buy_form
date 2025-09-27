@@ -1,0 +1,70 @@
+#add_to_cart,
+#product_option_block,
+.o_wsale_product_details_content_section small {
+    display: none !important;
+}
+
+#o_wsale_cta_wrapper {
+    max-width: 100% !important;
+}
+
+.css_quantity {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.quick-buy-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .18s ease
+}
+
+.quick-buy-modal.qb-show {
+    opacity: 1;
+    pointer-events: auto
+}
+
+.quick-buy-modal .qb-dialog {
+    background: #fff;
+    border-radius: 8px;
+    padding: 18px;
+    max-width: 500px;
+    width: 92%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    font-family: inherit;
+    display: grid;
+    gap: 1rem;
+}
+
+.quick-buy-modal .qb-close {
+    background: transparent;
+    border: 0;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer
+}
+
+.quick-buy-modal .qb-product-img {
+    width: 100px;
+    height: 100px;
+    background: #f8f9fa;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-width: fit-content;
+}
+
+.quick-buy-modal .qb-product-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
